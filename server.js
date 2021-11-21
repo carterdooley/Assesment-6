@@ -3,9 +3,24 @@ const path = require('path')
 const app = express()
 const {bots, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
+const cors = require("cors")
 
 app.use(express.json())
 app.use(express.static("public"));
+app.use(cors())
+
+//Merging files for deployment
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../index.html'))
+})
+app.get("/styles", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/index.css"));
+  });
+
+app.get("/js", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/index.js"));
+  });
+
 
 //Api
 app.get('/api/robots', (req, res) => {
@@ -75,14 +90,5 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`)
 })
 
-//Merging files for deployment
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'))
-})
-app.get("/styles", (req, res) => {
-    res.sendFile(path.join(__dirname, "public/index.css"));
-  });
-  app.get("/js", (req, res) => {
-    res.sendFile(path.join(__dirname, "public/index.js"));
-  });
+
