@@ -1,5 +1,8 @@
 const {shuffleArray} = require('./utils')
 
 describe('shuffleArray should', () => {
-    // CODE HERE
+    test('Return Array', async ()=> {
+        const list = shuffleArray([])
+        expect(list).toEqual([])
+    })
 })
