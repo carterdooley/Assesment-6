@@ -32,7 +32,7 @@ const makeRobotChoiceCard = (bot) => {
         <h4>Health: ${bot.health}</h4>
         <p>Attack 1: ${bot.attacks[0].damage} damage</p>
         <p>Attack 2: ${bot.attacks[1].damage} damage</p>
-        <button class="bot-btn" onclick="chooseBot(${bot.id})">Add to Duo</button>
+        <button class="bot-btn" id="addbot" onclick="chooseBot(${bot.id})">Add to Duo</button>
         </div>
     `
 }
@@ -45,7 +45,7 @@ const makeRobotPlayerCard = (bot) => {
         <h4>Health: ${bot.health}</h4>
         <p>Attack 1: ${bot.attacks[0].damage} damage</p>
         <p>Attack 2: ${bot.attacks[1].damage} damage</p>
-        <button class="bot-btn" onclick="putBotBack(${bot.id})">Remove from Duo</button>
+        <button class="bot-btn" id='botback' onclick="putBotBack(${bot.id})">Remove from Duo</button>
         </div>
     `
 }

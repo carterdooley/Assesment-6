@@ -9,6 +9,16 @@ app.use(express.json())
 app.use(express.static("public"));
 app.use(cors())
 
+
+var Rollbar = require("rollbar");
+var rollbar = new Rollbar({
+  accessToken: 'dd16716d25d74a3da356be443effa5d8',
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
+
+rollbar.log('Hello World')
+
 //Merging files for deployment
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'))
