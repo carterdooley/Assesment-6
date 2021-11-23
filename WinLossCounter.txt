@@ -1,0 +1,6 @@
+BUG IN CODE: In the robot dueling game there is a bug with the win and loss counter. Whenever a player 
+wins a game against the pc, the counter still represents the outcome to be a loss.
+
+To fix the problem: The problem is located in the backend server.js file on line 80. The original code says 
+"playerRecord.losses++" under the else statement that represents when the player wins. It should be changed 
+to "playerRecord.wins++"
