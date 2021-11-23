@@ -83,6 +83,7 @@ app.post('/api/duel', (req, res) => {
     } catch (error) {
         console.log('ERROR DUELING', error)
         res.sendStatus(400)
+        rollbar.critical('User\'s game failed to duel')
     }
 })
 
@@ -92,6 +93,7 @@ app.get('/api/player', (req, res) => {
     } catch (error) {
         console.log('ERROR GETTING PLAYER STATS', error)
         res.sendStatus(400)
+        rollbar.warning('Player stats not showing')
     }
 })
 
